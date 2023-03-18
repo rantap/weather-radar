@@ -8,12 +8,17 @@ const ForecastCard = ({
   precipitation,
   icon,
 }) => {
+  // Format time to hh:ss
   const time = moment.utc(datetime * 1000).format('LT');
+
   return (
     <div className='forecast-card'>
       <div>
         <p className='forecast-time'>{time}</p>
-        <img src={'http://openweathermap.org/img/wn/' + icon + '.png'} />
+        <img
+          className='forecast-icon'
+          src={'http://openweathermap.org/img/wn/' + icon + '.png'}
+        />
         <p className='forecast-temperature'>{Math.round(temperature)}°C</p>
       </div>
       <div className='forecast-additional'>
