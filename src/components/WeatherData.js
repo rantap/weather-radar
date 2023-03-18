@@ -4,10 +4,10 @@ import CurrentWeatherCard from './CurrentWeatherCard';
 const WeatherData = ({ location }) => {
   const [weatherData, setWeatherData] = useState({});
   const [loading, setLoading] = useState(false);
-
   const urlBase = 'https://api.openweathermap.org/data/2.5/weather?';
   const apiKey = process.env.REACT_APP_API_KEY;
-  
+
+  // Fetch weather data from the API
   useEffect(() => {
     const fetchWeatherData = async (location) => {
       try {
@@ -25,7 +25,12 @@ const WeatherData = ({ location }) => {
           wind: weatherJsonObject.wind.speed,
           humidity: weatherJsonObject.main.humidity,
           icon: weatherJsonObject.weather[0].icon,
-          /* precipitation: weatherJsonObject.snow['1h'], */
+          // Check the current object key for precipitation
+          // If not available set to 0
+          precipitation:
+            (weatherJsonObject.snow && weatherJsonObject.snow['3h']) ||
+            (weatherJsonObject.rain && weatherJsonObject.rain['3h']) ||
+            0,
         });
         setLoading(false);
       } catch (err) {
@@ -37,7 +42,7 @@ const WeatherData = ({ location }) => {
   }, []);
 
   return (
-    <div>
+    <div className='datacard-flex'>
       {loading ? (
         <p>Loading..</p>
       ) : (
@@ -48,7 +53,7 @@ const WeatherData = ({ location }) => {
           wind={weatherData.wind}
           humidity={weatherData.humidity}
           icon={weatherData.icon}
-          /* precipitation={weatherData.precipitation} */
+          precipitation={weatherData.precipitation}
         />
       )}
     </div>
