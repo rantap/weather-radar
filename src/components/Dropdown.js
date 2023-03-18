@@ -1,12 +1,12 @@
 import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 
-const Dropdown = ({ handleChange, selected }) => {
+const Dropdown = ({ handleChange, selectedLocation }) => {
   return (
     <div>
       <Select
         fullWidth
-        value={selected}
+        value={selectedLocation}
         onChange={handleChange}
         displayEmpty
         sx={{
@@ -15,8 +15,9 @@ const Dropdown = ({ handleChange, selected }) => {
           backgroundColor: 'white',
           textAlign: 'left',
           paddingLeft: '0.3rem',
+          marginBottom: '0',
           width: '100%',
-          height: '3rem',
+          height: '2.5rem',
           color: '#262626',
           '& .MuiSvgIcon-root': {
             color: 'black',
