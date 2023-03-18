@@ -19,13 +19,16 @@ p {
 .header {
   background-color: #ffffff;
   border: 1px solid #e6e6e6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.3rem;
   padding: 1rem;
 }
 .header-title {
   color: #262626;
   font-size: 23px;
   font-weight: 500;
+}
+.dropdown {
+  margin: 1rem 1rem -0.2rem 1rem;
 }
 
 /* Current weather card*/
@@ -34,16 +37,16 @@ p {
 }
 .datacard {
   background-color: #ffffff;
-  margin: 1rem;
+  margin: 1rem 1rem 0 1rem;
   border: 1px solid #e6e6e6;
   border-radius: 0.3rem;
 }
+
 /* Current weather upper part */
 .datacard-upper {
   display: flex;
   flex-direction: row;
 }
-
 .datacard-city {
   color: #262626;
   font-size: 19px;
@@ -68,7 +71,7 @@ p {
   margin-right: 1rem;
 }
 
-.side-content-center {
+.temperature-center {
   display: flex;
   margin-left: -0.5rem;
   align-items: center;
@@ -76,11 +79,14 @@ p {
 
 /* Current weather lower part */
 .datacard-lower {
+  padding: 0;
+  margin: 0;
   display: flex;
 }
 .datacard-datetime {
   text-align: left;
   margin: 1rem;
+  margin-top: 0;
 }
 .datacard-date {
   color: #262626;
@@ -97,6 +103,10 @@ p {
   font-size: 13px;
   text-align: right;
   margin: 1rem;
+  margin-top: 0;
+}
+.datacard-additional p {
+  margin-bottom: 0.2rem;
 }
 
 /* Forecast cards*/
@@ -104,7 +114,7 @@ p {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  margin: 1rem;
+  margin: 0.8rem 1rem 1rem 1rem;
 }
 .forecast-flex :last-child {
   margin-right: 0rem;
@@ -119,7 +129,10 @@ p {
 .forecast-time {
   color: #70757a;
   font-size: 13px;
-  margin-top: 1rem;
+  margin-top: 0.8rem;
+}
+.forecast-icon {
+  margin-top: -0.3rem;
 }
 .forecast-temperature {
   color: #262626;
@@ -142,4 +155,38 @@ p {
 }
 .forecast-additional :last-child {
   margin-bottom: 0.4rem;
+}
+
+/* Tablet */
+@media only screen and (min-width: 801px) and (max-width: 1024px) {
+  .city-container {
+    width: 50%;
+  }
+  .city-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  }
+}
+
+/* Desktop */
+@media only screen and (min-width: 1025px) {
+  .dropdown {
+    width: 20%;
+    margin: auto;
+    margin-bottom: 1rem;
+  }
+  .city-container {
+    width: 33%;
+  }
+  .forecast-flex {
+    flex-wrap: nowrap;
+  }
+  .city-flex-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem;
+    margin-top: 0;
+  }
 }
