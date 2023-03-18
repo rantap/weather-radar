@@ -1,12 +1,12 @@
-import './App.css';
-import { useState, useEffect } from 'react';
+import './styles.css';
+import { useState } from 'react';
 
 import WeatherData from './components/WeatherData';
 import ForecastData from './components/ForecastData';
 import Dropdown from './components/Dropdown';
 
 const App = () => {
-  const [locations, setLocations] = useState([
+  const locations = [
     {
       id: 1,
       city: 'Tampere',
@@ -31,7 +31,7 @@ const App = () => {
       latitude: 60.25,
       longitude: 24.6667,
     },
-  ]);
+  ];
   const [selected, setSelected] = useState('All');
   const handleChange = (event) => {
     setSelected(event.target.value);
@@ -44,28 +44,24 @@ const App = () => {
           <h1 className='header-title'>Säätutka</h1>
         </header>
       </div>
-      <div>
+      <div style={{ margin: '1rem' }}>
         <Dropdown selected={selected} handleChange={handleChange} />
       </div>
       <div>
         {selected === 'All'
-          ? locations.map((location, index) => (
-              <>
-                <div className='city-container'>
-                  <WeatherData location={location} key={location.id} />
-                  <ForecastData location={location} key={index} />
-                </div>
-              </>
+          ? locations.map((location) => (
+              <div className='city-container' key={location.id}>
+                <WeatherData location={location} />
+                <ForecastData location={location} />
+              </div>
             ))
           : locations
               .filter((data) => data.city === selected)
-              .map((location, index) => (
-                <>
-                  <div className='city-container'>
-                    <WeatherData location={location} key={location.id} />
-                    <ForecastData location={location} key={index} />
-                  </div>
-                </>
+              .map((location) => (
+                <div className='city-container' key={location.id}>
+                  <WeatherData location={location} />
+                  <ForecastData location={location} />
+                </div>
               ))}
       </div>
     </div>
