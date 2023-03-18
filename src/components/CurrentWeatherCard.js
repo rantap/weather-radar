@@ -10,6 +10,7 @@ const CurrentWeatherCard = ({
   precipitation,
   icon,
 }) => {
+  // Format date and time
   const date = moment().format('MMMM Do');
   const time = moment().format('LT');
 
@@ -18,6 +19,7 @@ const CurrentWeatherCard = ({
       <div className='datacard-upper'>
         <div className='datacard-city-description'>
           <h2 className='datacard-city'>{city}</h2>
+          {/* Render description and icon when the props are available */}
           <p className='datacard-description'>
             {description &&
               description.charAt(0).toUpperCase() + description.slice(1)}
@@ -27,7 +29,7 @@ const CurrentWeatherCard = ({
           <img
             src={icon && 'http://openweathermap.org/img/wn/' + icon + '@2x.png'}
           />
-          <div className='side-content-center'>
+          <div className='temperature-center'>
             <p className='datacard-temperature'>{temperature} °C</p>
           </div>
         </div>
@@ -41,7 +43,7 @@ const CurrentWeatherCard = ({
         <div className='datacard-additional'>
           <p>Wind: {wind} m/s</p>
           <p>Humidity: {humidity} %</p>
-          <p>Precipitation (1 h): {Math.round(precipitation)} mm</p>
+          <p>Precipitation (3 h): {Math.round(precipitation)} mm</p>
         </div>
       </div>
     </div>
@@ -49,5 +51,3 @@ const CurrentWeatherCard = ({
 };
 
 export default CurrentWeatherCard;
-
-// description.charAt(0).toUpperCase() + description.slice(1)
