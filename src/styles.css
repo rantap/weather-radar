@@ -1,0 +1,145 @@
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f8f9fa;
+}
+.App {
+  text-align: center;
+  width: 100%;
+}
+p {
+  margin: 0.1rem;
+}
+
+/* Header */
+.header {
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  margin-bottom: 1.5rem;
+  padding: 1rem;
+}
+.header-title {
+  color: #262626;
+  font-size: 23px;
+  font-weight: 500;
+}
+
+/* Current weather card*/
+.city-container {
+  margin-bottom: 1.5rem;
+}
+.datacard {
+  background-color: #ffffff;
+  margin: 1rem;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.3rem;
+}
+/* Current weather upper part */
+.datacard-upper {
+  display: flex;
+  flex-direction: row;
+}
+
+.datacard-city {
+  color: #262626;
+  font-size: 19px;
+  font-weight: 500;
+  text-align: left;
+  margin: 1rem 1rem 0rem 1rem;
+}
+.datacard-description {
+  color: #70757a;
+  font-size: 13px;
+  text-align: left;
+  margin-left: 1rem;
+}
+.datacard-temperature {
+  color: #262626;
+  font-size: 26px;
+}
+.icon-container {
+  display: flex;
+  margin-top: -0.5rem;
+  margin-left: auto;
+  margin-right: 1rem;
+}
+
+.side-content-center {
+  display: flex;
+  margin-left: -0.5rem;
+  align-items: center;
+}
+
+/* Current weather lower part */
+.datacard-lower {
+  display: flex;
+}
+.datacard-datetime {
+  text-align: left;
+  margin: 1rem;
+}
+.datacard-date {
+  color: #262626;
+  font-size: 15px;
+}
+.datacard-time {
+  color: #70757a;
+  font-size: 13px;
+  margin-left: 0.1rem;
+}
+.datacard-additional {
+  flex: auto;
+  color: #70757a;
+  font-size: 13px;
+  text-align: right;
+  margin: 1rem;
+}
+
+/* Forecast cards*/
+.forecast-flex {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  margin: 1rem;
+}
+.forecast-flex :last-child {
+  margin-right: 0rem;
+}
+.forecast-card {
+  background-color: #ffffff;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.3rem;
+  margin-right: 0.5rem;
+  width: 17.5%;
+}
+.forecast-time {
+  color: #70757a;
+  font-size: 13px;
+  margin-top: 1rem;
+}
+.forecast-temperature {
+  color: #262626;
+  font-size: 15px;
+  margin-top: -0.5rem;
+  margin-bottom: 0.5rem;
+}
+.forecast-additional {
+  background-color: #e5f6fd;
+  border-top: 1px solid #e6e6e6;
+  padding: 0.1rem;
+}
+.forecast-additional p {
+  background-color: #e5f6fd;
+  color: #70757a;
+  font-size: 10px;
+}
+.forecast-additional :first-child {
+  margin-top: 0.4rem;
+}
+.forecast-additional :last-child {
+  margin-bottom: 0.4rem;
+}
