@@ -3,12 +3,15 @@ import CurrentWeatherCard from './CurrentWeatherCard';
 
 const WeatherData = ({ location }) => {
   const [weatherData, setWeatherData] = useState({});
+  const [loading, setLoading] = useState(false);
 
   const urlBase = 'https://api.openweathermap.org/data/2.5/weather?';
   const apiKey = process.env.REACT_APP_API_KEY;
+  
   useEffect(() => {
     const fetchWeatherData = async (location) => {
       try {
+        setLoading(true);
         const res = await fetch(
           urlBase +
             `lat=${location.latitude}&lon=${location.longitude}&units=metric&appid=` +
@@ -22,10 +25,11 @@ const WeatherData = ({ location }) => {
           wind: weatherJsonObject.wind.speed,
           humidity: weatherJsonObject.main.humidity,
           icon: weatherJsonObject.weather[0].icon,
-          // precipitation: weatherJsonObject.snow['1h'],
+          /* precipitation: weatherJsonObject.snow['1h'], */
         });
-        console.log(weatherJsonObject);
+        setLoading(false);
       } catch (err) {
+        setLoading(false);
         console.log(err);
       }
     };
@@ -34,15 +38,19 @@ const WeatherData = ({ location }) => {
 
   return (
     <div>
-      <CurrentWeatherCard
-        city={weatherData.city}
-        description={weatherData.description}
-        temperature={weatherData.temperature}
-        wind={weatherData.wind}
-        humidity={weatherData.humidity}
-        icon={weatherData.icon}
-        // precipitation={weatherData.precipitation}
-      />
+      {loading ? (
+        <p>Loading..</p>
+      ) : (
+        <CurrentWeatherCard
+          city={weatherData.city}
+          description={weatherData.description}
+          temperature={weatherData.temperature}
+          wind={weatherData.wind}
+          humidity={weatherData.humidity}
+          icon={weatherData.icon}
+          /* precipitation={weatherData.precipitation} */
+        />
+      )}
     </div>
   );
 };
