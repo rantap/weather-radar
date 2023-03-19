@@ -17,7 +17,7 @@ const Dropdown = ({ handleChange, selectedLocation }) => {
           paddingLeft: '0.3rem',
           marginBottom: '0',
           width: '100%',
-          height: '2.5rem',
+          height: '3rem',
           color: '#262626',
           '& .MuiSvgIcon-root': {
             color: 'black',
