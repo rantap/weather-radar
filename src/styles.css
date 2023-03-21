@@ -73,7 +73,6 @@ p {
 
 .temperature-center {
   display: flex;
-  margin-left: -0.5rem;
   align-items: center;
 }
 
