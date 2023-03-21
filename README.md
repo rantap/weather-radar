@@ -16,7 +16,7 @@ Clone the repository and run `npm install` to install the dependencies.
 
 Using your OpenWeatherMap API key:
 
-Add the following content to the .env file:
+Set your API key in the .env file located in the root of the project directory:
 
 `REACT_APP_API_KEY = 'your_api_key'`
 
