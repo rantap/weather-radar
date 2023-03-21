@@ -14,7 +14,7 @@ const Dropdown = ({ handleChange, selectedLocation }) => {
           fontSize: '13px',
           backgroundColor: 'white',
           textAlign: 'left',
-          paddingLeft: '0.3rem',
+          paddingLeft: '0.5rem',
           marginBottom: '0',
           width: '100%',
           height: '3rem',
